@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+</head>
+<body>
+    <h1>FORMULARIO PARA ENTRADA SIN VALIDACION</h1>
+    <form action="./respuesta.html" target="_blank" method="get">
+        <ul>
+            <li>
+                <label for="">Nombre:</label> <br>
+                <input type="text" autofocus name="nombre">
+            </li>
+            <li>
+                <label for="">Contraseña:</label> <br>
+                <input type="password" name="contraseña" >
+            </li>
+            <li>
+                <label for="">Oculto:</label> <br>
+                <input type="hidden">
+            </li>
+            <li>
+                <label for="">Campo desabilitado:</label> <br>
+                <input type="text" disabled value="Valor desabilitado" >
+            </li>
+            <li>
+                <label for="">Campo solo lectura:</label> <br>
+                <input type="text" readonly value="solo lectura">
+            </li>     
+            <li>
+                <label for="">Practica musica:</label> <br>
+                <input type="checkbox" name="musica">
+            </li>
+            <li>
+                <label for="">Practica futbol:</label> <br>
+                <input type="checkbox" name="futbol">
+            </li>
+            <li>
+                <label for="">Practica arte:</label> <br>
+                <input type="checkbox" name="arte">
+            </li>
+            <li>
+                <label for="">Sexo:</label> <br>
+                <input type="radio" name="sexo"> <label for="">Mujer</label>
+                <input type="radio" name="sexo"> <label for="">Hombre</label>
+            </li>
+            <li>
+                <label for="">Estudios</label> <br>
+                <select name="estudio" id="estudio">
+                    <option value="secu">Secundario</option>
+                    <option value="pri">Primario</option>
+                    <option value="ter">Terciario</option>
+                </select>
+            </li>
+            <li>
+                <label for="">Fecha y hora</label> <br>
+                <input type="time" name="tiempo"> <input type="date" name="dia">
+            </li>
+            <li>
+                <label for="">Color</label> <br>
+                <input type="color" name="color">
+            </li>
+            <li>
+                <button type="submit">Enviar formulario sin validacion</button>
+            </li>
+            <li>
+                <button type="reset">Reset a valores predeterminados</button>
+            </li>
+        </ul>
+    </form>
+
+    <h1>FORMULARO CON VALIDACION</h1>
+    <form action="./respuesta.html" target="_blank" method="get">
+        <ul>
+            <li>
+                <label for="">Texto con validacion</label> <br>
+                <input type="text" required name="texto">
+            </li>
+            <li>
+                <label for="">Email (validacion de @)</label> <br>
+                <input type="email" placeholder="texto@texto" name="email">
+            </li>
+            <li>
+                <label for="">numero entero</label> <br>
+                <input type="number" name="num">
+            </li>
+            <li>
+                <label for="">numero decimal</label> <br>
+                <input type="number" step="0.1" name="num_dec">
+            </li>
+            <li>
+                <label for="">URL</label> <br>
+                <input type="url" placeholder="http://xxx" required name="url">
+            </li>
+            <li>
+                <label for="">Pattern</label> <br>
+                <input type="text" name="pat" pattern="[a-z]{4}[0-9]{3}" title="4 letras y 3 numeros">
+            </li>
+            <li>
+                <label for="">Pattern numero celular</label> <br>
+                <input type="tel" name="cel" placeholder="+54 11 xxxx-xxxx" pattern="[+]{1}[0-9]{2} [0-9]{2} [0-9]{4}-[0-9]{4}">
+            </li>
+            <li>
+                <button type="submit">Enviar formulario sin validacion</button>
+            </li>
+            <li>
+                <button type="reset">Reset a valores predeterminados</button>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>
