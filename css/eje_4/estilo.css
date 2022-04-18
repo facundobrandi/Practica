@@ -1,0 +1,28 @@
+p
+{
+    margin: 0%;
+    font-size: 20px;
+}
+
+.div_1
+{   
+    margin: auto;
+    width: 50%;
+    background-color: aqua;
+}
+.div_2
+{   
+    margin: auto;
+    width: 50%;
+    background-color:burlywood;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.div_3
+{   
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    background-color:crimson;
+    box-sizing: border-box;
+}
