@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;    
+    font-size: 8px;
+    font-size:100%;
+}
+
+img
+{
+    max-width:100%;
+    max-height:100%;
+    margin: 1%;
+}
+
+.contenedor
+{
+    width: 90%;
+    background-color: aquamarine;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.div
+{
+    height: 300px;
+    width: 400px;
+    margin-bottom: 20px;
+    background: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+.div_1
+{
+    height: 500px;
+    grid-column: 1/3;
+}
