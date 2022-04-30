@@ -1,37 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;    
+    font-size: 8px;
+    font-size:100%;
+}
+
 img
 {
     max-width:100%;
+    max-height:100%;
     margin: 1%;
 }
 
 .contenedor
 {
     width: 90%;
-    background-color:burlywood;
+    background-color: aquamarine;
     margin: auto;
 }
 .div
 {
-    float: left;
-    width: 30%;
-    background-color: rgb(66, 66, 165);
+    height: 300px;
+    width: 400px;
+    margin-bottom: 20px;
+    background: burlywood;
     display: block;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    font-size: 2em;
+    float: left;
     padding: 45px;
-    margin: 5px;
+    margin-left: 5px;
 }
-div.clear
+.clear
 {
-    clear: both ;
+    clear: both;
 }
 .div_1
-{
-    height: 500px;
-}
-
-.div_6
 {
     height: 500px;
 }

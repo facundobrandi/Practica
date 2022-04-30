@@ -1,0 +1,46 @@
+.conte
+{
+    width: 90%;
+    background-color: aquamarine;
+    margin-left: 50px;
+    position: absolute;
+    height: 90%;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;    
+    font-size: 8px;
+    font-size:100%;
+}
+
+.div_1
+{    
+    position:absolute;
+    margin-left: 0%;
+    margin-top: 200px;
+    height: 300px;
+    width: 150px;
+    background-color: cornsilk;
+}
+
+.div_2
+{
+    position:absolute;
+    margin-left: 50%;
+    margin-top: 400px;
+    height: 300px;
+    width: 500px;
+    background-color: rgb(172, 139, 7);
+}
+.div_3
+{
+    position:absolute;
+    margin-left: 25%;
+    margin-top: 25;
+    height: 300px;
+    width: 500px;
+    background-color: rgb(109, 109, 109);
+    opacity: 50%;
+}

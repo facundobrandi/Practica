@@ -1,0 +1,56 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;    
+    font-size: 8px;
+    font-size:100%;
+}
+h1
+{
+    margin-bottom: 30px;
+}
+body
+{
+    background-color: rgb(145, 92, 12);
+}
+
+.contenedor
+{
+    width: 90%;
+    background-color: aquamarine;
+    margin: auto;
+}
+.texto
+{
+    position: relative;
+    background-color: greenyellow;
+    margin-left: 0%;
+    margin-bottom: 10px;
+    width: 700px;
+}
+.texto_2
+{
+    background-color: rgb(10, 202, 186);
+    margin-left: 500px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+.texto_3
+{
+    background-color: rgb(226, 25, 159);
+    margin-left: 700px;
+    margin-bottom: 10px;
+    width: 400px;
+    overflow-y:scroll;
+}
+.modal
+{
+    height: 500px;
+    background-color: brown;
+    opacity: 70%;
+    width: 700px;
+    position: fixed;
+    overflow-y: auto;
+    top: 25%;
+    left: 45%;
+}
