@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ingrese un valor y aprete el boton para usar la funcion</h1>
+    <input type="text" id="val">
+    <button id="mostra">Mostrar valor</button>
+    <button id="sumar_1">suma 1</button>
+    <button id="cuadrado">cuadrado</button>
+    <button id="por_2">por 2</button>
+    <button id="raiz">Raiz cuadrada</button>
+
+    <script>
+        let val  = document.getElementById("val");
+        
+        document.getElementById("mostra").onclick= function() {
+
+            alert(document.getElementById("val").value);
+
+        }
+
+        document.getElementById("sumar_1").onclick= function() {
+
+             document.getElementById("val").value ++;
+
+        }
+
+        document.getElementById("cuadrado").onclick= function() {
+
+         
+            document.getElementById("val").value =   document.getElementById("val").value * document.getElementById("val").value
+
+        }
+
+        document.getElementById("por_2").onclick= function() {
+
+        document.getElementById("val").value = document.getElementById("val").value *2;
+
+        }
+
+        document.getElementById("raiz").onclick= function() {
+
+        document.getElementById("val").value = Math.sqrt(document.getElementById("val").value)
+
+        }
+    </script>
+</body>
+</html>

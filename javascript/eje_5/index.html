@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="mal()">inicializacion mal</button>
+    <button onclick="bien()">inicializacion bien</button>
+    <button onclick="mostrar()">Mostrar variable</button>
+    <script>
+        var a 
+
+        function mal()
+        {   
+            var a = 5 ;
+            alert("la variable es "+a);
+            alert("tipo de la variable es "+ typeof a);
+        }
+
+        function bien()
+        {   
+            a = prompt("ingrese el valor de la variable")
+            alert("tipo de la variable es "+ typeof a);
+        }
+
+
+        function mostrar()
+        {   
+            alert("la variable es "+a);
+            alert("tipo de la variable es "+ typeof a);
+        }
+
+
+    </script>
+</body>
+</html>
