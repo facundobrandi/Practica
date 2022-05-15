@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;    
+            font-size: 19px;
+            overflow: hidden;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1
+        {
+            font-size: 2rem;
+            margin: 10px;
+        }
+        h2, h3
+        {
+            padding: 10px;
+        }
+
+        input,button
+        {
+            margin: 5px;
+            margin-left: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .conte
+        {
+            width: 90%;
+            margin: auto;
+            background-color: cadetblue;
+        }
+    </style>
+    <div class="conte">
+        <form action="" id="forma">
+            <h1>Validacion entre inputs</h1>
+            <h2>Ingrese el dia </h2>
+            <input type="number" id="dia" name="dia" title="Numero entre 1 y 31">
+
+            <h2>Ingrese el mes </h2>
+            <input type="number" id="mes" name="mes" title="Numero entre 1 y 12"> <br> <br>
+
+            <button id="reset" >Reset</button>
+            <button id="enviar" >Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        let dia
+        let mes 
+
+        document.getElementById("dia").onchange = function()
+        {
+             dia = parseInt(document.getElementById ("dia").value);
+        }
+
+        document.getElementById("mes").onchange = function()
+        {
+             mes = parseInt(document.getElementById ("mes").value);
+        }
+
+        document.getElementById("dia").onkeyup = function()
+        {
+            if (parseInt(document.getElementById ("dia").value) < 1)
+            {
+                alert("Revise el numero");
+                document.getElementById ("dia").value = "";
+            }
+
+            if (parseInt(document.getElementById ("dia").value) > 31)
+            {
+                alert("Revise el numero");
+                document.getElementById ("dia").value = "";
+            }
+        }
+
+        document.getElementById("mes").onkeyup = function()
+        {
+            if (parseInt(document.getElementById ("mes").value) < 1)
+            {
+                alert("Revise el numero");
+                document.getElementById ("mes").value = "";
+            }
+
+            if (parseInt(document.getElementById ("mes").value) > 12)
+            {
+                alert("Revise el numero");
+                document.getElementById ("mes").value = "";
+            }
+        }
+
+
+        document.getElementById("reset").onclick = function()
+        {
+            document.getElementById("dia").value = "";
+            document.getElementById("mes").value = "";
+        }
+
+        document.getElementById("enviar").onclick = function()
+        {
+            var confi = confirm("Desea enviar la info");
+
+            if (confi == true)
+            {
+                document.getElementById("forma").method ="get";
+                document.getElementById("forma").action ="./respuesta.html";
+                document.getElementById("forma").submit();
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

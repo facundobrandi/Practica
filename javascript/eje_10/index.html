@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;    
+            font-size: 19px;
+            overflow: hidden;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1
+        {
+            font-size: 2rem;
+            margin: 10px;
+        }
+        h2, h3
+        {
+            padding: 10px;
+        }
+
+        input,button
+        {
+            margin: 5px;
+            margin-left: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .conte
+        {
+            width: 90%;
+            margin: auto;
+            background-color: cadetblue;
+        }
+    </style>
+
+
+    <div class="conte">
+      <form action="" id="forma">
+            <h1>Confirmacion de Envio y de Reset</h1>
+            <h2>Nombre</h2>
+            <input type="text" id="nom" name="nombre">
+
+            <h2>Apellido</h2>
+            <input type="text" id="ape" name="apellido"> <br> <br>
+
+            <button id="reset" >Reset</button>
+            <button id="enviar" >Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        let nombre
+        let ape 
+
+        document.getElementById("nom").onchange = function()
+        {
+             nombre = document.getElementById ("nom").value;
+        }
+
+        document.getElementById("ape").onchange = function()
+        {
+             ape = document.getElementById ("ape").value;
+        }
+
+        document.getElementById("reset").onclick = function()
+        {
+            document.getElementById("nom").value = "";
+            document.getElementById("ape").value = "";
+        }
+
+        document.getElementById("enviar").onclick = function()
+        {
+            var confi = confirm("Desea enviar la info");
+
+            if (confi == true)
+            {
+                document.getElementById("forma").method ="get";
+                document.getElementById("forma").action ="./respuesta.html";
+                document.getElementById("forma").submit();
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

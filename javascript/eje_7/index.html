@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones compartidas</title>
+    <!-- Armar un HTML con una calculadora que permita sumar valores en una variable global, permita mostrar el valor del acumulador con un alert, borrar el input en donde se muestra el valor y borrar el acumulador
+    -->
+    <style>
+        html, body{
+            height: 100%;
+            margin: 5px;
+            font-size: 32px;
+        }
+
+        div#contenedor{
+            width: 30%;
+            padding: 10px;
+            background-color: darkgreen;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div#botoneraNum{
+            width: 90%;
+            background-color: greenyellow;
+            padding: 5px;
+        }
+
+        div#botoneraOp{
+            width: 30%;
+            background-color: darkolivegreen;
+            padding: 5px;
+        }
+
+        input#pantalla{
+            width: 98.5%;
+            text-align: right;
+            
+        }
+        
+        input.boton{
+            display: flex;
+            width: 30%;
+            float: left;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1.6%;
+        }
+
+        input#N0{
+            display: flex;
+            width: 96.4%;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1.6%;
+        }
+
+        input.botonera {
+            display: flex;
+            width: 96.4%;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1.6%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="botoneraNum">
+            <input type="text" id="pantalla" autofocus="autofocus">
+            <input type="button" value="1" class="boton" id="N1"></input>
+            <input type="button" value="2" class="boton" id="N2"></input>
+            <input type="button" value="3" class="boton" id="N3"></input>
+            <input type="button" value="4" class="boton" id="N4"></input>
+            <input type="button" value="5" class="boton" id="N5"></input>
+            <input type="button" value="6" class="boton" id="N6"></input>
+            <input type="button" value="7" class="boton" id="N7"></input>
+            <input type="button" value="8" class="boton" id="N8"></input>
+            <input type="button" value="9" class="boton" id="N9"></input>
+            <input type="button" value="0" id="N0"></input>
+            </input>
+        </div>
+        <div id="botoneraOp">
+            <input type="button" value="+" class="botonera" id="+"></input>
+            <input type="button" value="Muestra acumulador" class="botonera" id="MuestraAcumulador"></input>
+            <input type="button" value="Borra acumulador" class="botonera" id="BorraAcumulador"></input>
+            <input type="button" value="Borra display" class="botonera" id="BorraDisplay"></input>
+        </div>
+    </div>
+    <script>
+        acumulador = 0;
+
+        document.getElementById("N1").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '1';
+        }   
+        document.getElementById("N2").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '2';
+        } 
+        document.getElementById("N3").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '3';
+        } 
+        document.getElementById("N4").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '4';
+        } 
+        document.getElementById("N5").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '5';
+        } 
+        document.getElementById("N6").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '6';
+        } 
+        document.getElementById("N7").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '7';
+        } 
+        document.getElementById("N8").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '8';
+        } 
+        document.getElementById("N9").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '9';
+        } 
+        document.getElementById("N0").onclick = function () {
+            document.getElementById ("pantalla").value = document.getElementById ("pantalla").value + '0';
+        } 
+
+
+        document.getElementById("BorraDisplay").onclick = function () {
+            document.getElementById ("pantalla").value = " ";
+        }
+
+        document.getElementById("BorraAcumulador").onclick = function () {
+            acumulador = 0;
+        }
+
+        document.getElementById("MuestraAcumulador").onclick = function () {
+            alert (acumulador);
+        }
+
+        document.getElementById("+").onclick = function () {
+            acumulador = acumulador + parseInt(document.getElementById ("pantalla").value);
+            document.getElementById ("pantalla").value = " ";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones entre inputs</title>
+    <!-- Crear un HTML que disponga de 3 inputs para ingresar valores y uno para mostrar el resultado de las operaciones que se realizarán a través de funciones que se activarán con distintos botones. 
+    Tiene que haber un botón para sumar los 3 inputs, uno para mostrar el promedio y otro para mostrar el input con el valor más alto. -->
+    <style>
+        html, body{
+            height: 100%;
+            margin: 5px;
+            font-size: 18px;
+        }
+
+        div#contenedor{
+            width: 40%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgb(14, 164, 190);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label{
+            color: white;
+            font-weight: bold;
+        }
+
+        div#inputs{
+            width: 60%;
+            background-color: rgb(46, 241, 255);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        div#botonera{
+            width: 20%;
+            background-color: rgb(14, 101, 112);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        input{
+            width: 98%; 
+            display: flex;
+            padding: 0;
+            margin: 0;       
+        }
+
+        input.botonera {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Introducir un valor en los cuadros de texto y luego pulsar el botón para ejecutar la función correspondiente</h1>
+    <div id="contenedor">
+        <div>
+            <label>Entrada 1:</label></br>
+            <label>Entrada 2:</label></br>
+            <label>Entrada 3:</label></br>
+            <label>Resultado:</label>
+        </div>
+        <div id="inputs">
+            <input type="text" id="entrada1" autofocus="autofocus">
+            <input type="text" id="entrada2" autofocus="autofocus">
+            <input type="text" id="entrada3" autofocus="autofocus">
+            <input type="text" id="resultado" autofocus="autofocus" readonly>
+        </div>
+        <div id="botonera">
+            <input type="button" value="Suma" class="botonera" id="Suma"></input>
+            <input type="button" value="Promedio" class="botonera" id="Promedio"></input>
+            <input type="button" value="Mayor" class="botonera" id="Mayor"></input>
+        </div>
+    </div>
+    <script>
+
+        var var1 = 0;
+        var var2 = 0;
+        var var3 = 0;
+
+
+        document.getElementById("entrada1").onchange = function()
+        {
+             var1 = parseInt(document.getElementById ("entrada1").value);
+
+        }
+
+        document.getElementById("entrada2").onchange = function()
+        {
+             var2 = parseInt(document.getElementById ("entrada2").value);
+        }
+
+        document.getElementById("entrada3").onchange = function()
+        {
+             var3 = parseInt(document.getElementById ("entrada3").value); 
+        }
+
+        debugger
+        /* var var1 = parseInt(document.getElementById ("entrada1").value);
+        var var2 = parseInt(document.getElementById ("entrada2").value);
+        var var3 = parseInt(document.getElementById ("entrada3").value);
+        var var4 = parseInt(document.getElementById ("entrada4").value); */
+
+        /* document.getElementById("Suma").onclick = function () {
+            document.getElementById ("resultado").value = parseInt(document.getElementById ("entrada1").value) + parseInt(document.getElementById ("entrada2").value) + parseInt(document.getElementById ("entrada3").value);
+        } */
+
+        document.getElementById("Suma").onclick = function () {
+            var res;
+
+            res = var1 + var2 + var3;
+            document.getElementById ("resultado").value = res;
+        }
+
+        document.getElementById("Promedio").onclick = function () {
+            document.getElementById ("resultado").value = (parseInt(document.getElementById ("entrada1").value) + parseInt(document.getElementById ("entrada2").value) + parseInt(document.getElementById ("entrada3").value))/3;
+        }
+
+        document.getElementById("Mayor").onclick = function () {
+            if ((parseInt(document.getElementById ("entrada1").value)) >= (parseInt(document.getElementById ("entrada3").value))){
+                if((parseInt(document.getElementById ("entrada1").value)) >= (parseInt(document.getElementById ("entrada3").value))){
+                    document.getElementById ("resultado").value = parseInt(document.getElementById ("entrada1").value);
+                }
+                else{
+                    document.getElementById ("resultado").value = parseInt(document.getElementById ("entrada3").value);
+                }
+            }
+            else{
+                if((parseInt(document.getElementById ("entrada2").value)) >= (parseInt(document.getElementById ("entrada3").value))){
+                    document.getElementById ("resultado").value = (parseInt(document.getElementById ("entrada2").value));
+                }
+                else{
+                    document.getElementById ("resultado").value = (parseInt(document.getElementById ("entrada3").value));
+                }
+            }
+        }
+    </script>
+</body>
+</html>

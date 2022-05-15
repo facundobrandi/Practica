@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;    
+            font-size: 19px;
+            overflow: hidden;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h2, h3
+        {
+            padding: 10px;
+        }
+
+        input,button
+        {
+            margin: 5px;
+            margin-left: 20px;
+        }
+        .conte
+        {
+            width: 90%;
+            background-color: aquamarine;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .control
+        {
+            width: 90%;
+            background-color: rgb(189, 203, 83);
+            margin: auto;  
+        }
+        table,tr,td
+        {
+            border:1px solid black;
+            width: 90%;
+            margin:auto;
+            table-layout: fixed;
+        }
+        #lista
+        {
+            display:none;
+        }
+    </style>
+
+
+    <div class="conte">
+        <h2>Agregar persona</h2>
+        <h3>Nombre:</h3> 
+        <input type="text" id="nombre"> 
+
+        <h3>Apellido:</h3> 
+        <input type="text" id="ape"> 
+
+        <h3>Fecha de Nacimiento:</h3> 
+        <input type="text" id="fecha"> <br> 
+         <button id="agregar">Agregar Personas</button>
+    </div>
+    <div class="control">
+        <h2> control</h2>
+        <button id="mostrar">Mostrar Lista de Personas</button>
+        <button id="Ocultar">Ocultar Lista de Personas</button>
+    </div>
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>Fecha</td>
+                </tr>
+            </thead>
+            <tbody id="lista"> 
+            </tbody>
+            </table>
+    </div>
+
+    <script>
+        let nombre 
+        let Apellido
+        let fecha
+
+        function persona (nombre , ape , fecha)
+        {
+            this.nombre = nombre;
+            this.ape = ape;
+            this.fecha = fecha;
+        }
+
+        let per1 = new persona("pedro","carlos","13-05-1899");
+        let per2 = new persona("juan","marea","13-05-1899");
+        let per3 = new persona("camilo","paria","13-05-1899");
+        let personas =[];
+
+        personas.push(per1,per2,per3);
+
+        let objeto_per = {per : personas};  
+
+        document.getElementById("nombre").onchange = function()
+        {
+             nombre = document.getElementById ("nombre").value;
+        }
+
+        document.getElementById("ape").onchange = function()
+        {
+             ape = document.getElementById ("ape").value;
+        }
+
+        document.getElementById("fecha").onchange = function()
+        {
+             fecha = document.getElementById ("fecha").value; 
+        }
+
+
+        document.getElementById("agregar").onclick = function()
+        {
+            let per4 = new persona(nombre,ape,fecha);
+            personas.push(per4);
+        }
+
+        document.getElementById("mostrar").onclick = function()
+        {
+             document.getElementById("lista").innerHTML = "";
+             document.getElementById("lista").style = "display:contents;"
+            personas.forEach(mostrar)
+        }
+
+        document.getElementById("Ocultar").onclick = function() 
+        {
+            document.getElementById("lista").style = "display:none;"
+        }
+
+        function mostrar(item , indice)
+        {
+            
+            const carro = document.getElementById("lista");
+            const carro_items_contenido = `
+                            <tr>
+                                <td>${item.nombre}</td>
+                                <td>${item.ape}</td>
+                                <td>${item.fecha}</td>
+                            </tr>
+                        `;
+            carro.innerHTML += carro_items_contenido;
+            
+        }
+
+
+
+
+    </script>
+</body>
+</html>
