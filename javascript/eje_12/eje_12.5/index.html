@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #conte
+        {
+            width: fit-content;
+                        height: fit-content;
+                        background-color: burlywood;
+                        border: 2px solid rgb(82, 68, 49);
+                        border-radius: 25px;
+                        padding: 50px;
+        }
+
+        ul , li ,h2
+        {
+            color: rgb(27, 58, 58);
+        }
+
+    </style>
+    <div id="conte">
+            <h2>lista</h2>
+
+            <ul>
+                <li>Punto 1</li>
+                <li>Punto 2</li>
+                <li>Punto 3</li>
+                <li>Punto 4</li>
+                <li>Punto 5</li>
+            </ul>
+
+            <button id="st_1">style 1</button>
+            <button id="st_2">style 2</button>
+            <button id="st_3">style 3</button>
+            <button id="st_4">style 4</button>
+            <button id="org">Original</button>
+    </div>
+    <script>
+        document.getElementById("st_1").onclick = function()
+        {
+            document.getElementById("conte").style =
+                `   
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: rgb(197, 39, 171);
+                    border: 50px solid rgb(48, 4, 37);
+                    border-radius: 0px;
+                    padding: 0px;
+                `
+        }
+
+        document.getElementById("org").onclick = function()
+        {
+            document.getElementById("conte").style =
+                `   
+                        width: fit-content;
+                        height: fit-content;
+                        background-color: burlywood;
+                        border: 2px solid rgb(82, 68, 49);
+                        border-radius: 25px;
+                        padding: 50px;
+                `
+        }
+
+        document.getElementById("st_2").onclick = function()
+        {
+            document.getElementById("conte").style =
+                `   
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: rgb(103, 115, 224);
+                    border: 2px solid rgb(24, 47, 150);
+                    border-radius: 0px;
+                    padding: 15px;
+                `
+        }
+
+        document.getElementById("st_3").onclick = function()
+        {
+            document.getElementById("conte").style =
+                `   
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: rgb(228, 118, 54);
+                    border: 2px solid rgb(80, 39, 6);
+                    border-radius: 5px;
+                    padding: 150px;
+                `
+        }
+
+        document.getElementById("st_4").onclick = function()
+        {
+            document.getElementById("conte").style =
+                `   
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: rgb(121, 121, 121);
+                    border: 50px solid rgb(0, 0, 0);
+                    border-radius: 50px;
+                    padding: 150px;
+                `
+        }
+    </script>
+</body>
+</html>

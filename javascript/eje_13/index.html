@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #conte
+        {
+            width: 70%;
+            margin: auto;
+            height: 600px;
+            background-color: burlywood;
+            border: 1px solid rgb(85, 65, 38);
+            overflow-y: auto; 
+        }
+
+        button
+        {
+            padding: 15px;
+            background-color: burlywood;
+            border: 1px solid rgb(85, 65, 38); 
+            border-radius: 15px;
+        }
+
+        button:hover
+        {
+            background-color: rgb(77, 64, 47);
+        }
+
+        .divs
+        {
+            background-color: aquamarine;
+            border: solid 1px rgb(34, 92, 72);
+            height: fit-content;
+            width: fit-content;
+            padding: 15px;
+            margin: 10px;
+        }
+
+
+    </style>
+
+    <button id="agregar">Agregar</button>
+    <button id="borrar">Borrar</button>
+    <button id="info">Info</button>
+    <div id="conte">
+
+    </div>
+
+    <script>
+
+        let cont = 0;
+        document.getElementById("agregar").onclick = function()
+        {
+            cont++;
+            let div = `<div class="divs">
+                <h1>div Nº : ${cont} </h1>
+                </div>`;
+            document.getElementById("conte").innerHTML += div;
+        }
+
+        document.getElementById("borrar").onclick = function()
+        {
+            document.getElementById("conte").innerHTML = ""; 
+            cont=0;
+        }
+
+        document.getElementById("info").onclick = function()
+        {
+            alert("El numero de divs es "+cont);
+        }
+    </script>
+</body>
+</html>
