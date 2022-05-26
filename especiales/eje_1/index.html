@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .conte
+        {
+            width: 100%;
+            margin: auto;
+            background-color: burlywood;
+        }
+        .head , .footer
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: darkgray;
+        }
+        .clear
+        {
+            clear: both;
+        }
+
+            input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+
+            input[type=number], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+            input[type=date], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+
+            input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+            background-color: #45a049;
+            }
+
+            .forms{
+            background-color: burlywood;
+            padding: 20px;
+            }
+    </style>
+
+
+    <div class="conte">
+        <div class="head"> <h1>Formulario para alta </h1></div>
+        <div class="clear"> </div>
+        <div class="forms">
+            <form action="./respuesta.html" method="get">
+              <label for="fname">Nombre</label>
+              <input type="text" id="nom" name="Nombre" required placeholder="Codigo de articulos">
+          
+              <label for="lname">Apellido:</label>
+              <input type="text" id="ape" name="Apellido" required placeholder="Descripcion">
+
+              <label for="lname">Saldo:</label>
+              <input type="number" id="Saldo" name="Saldo" required placeholder="Saldo">
+          
+              <label for="country">Pais</label>
+              <select id="pais" required name="Pais">
+              </select>
+
+              <input type="submit" value="Enviar" id="enviar" >
+            </form>
+          </div>
+        <div class="footer"> <h1>Pie del formulario</h1></div>
+    </div>
+
+
+    <script > 
+        let textoJSONEmpleados = '[' +
+        '{"pais":"Argentina"},'+
+        '{"pais":"Peru"},'+
+        '{"pais":"Brasil"},'+
+        '{"pais":"Chile"}'+
+        ']';
+        let texto =  document.getElementById("pais")
+        let obj = JSON.parse(textoJSONEmpleados);
+        
+        obj.forEach(element => { 
+            texto.innerHTML +=`<option value="${element.pais}">${element.pais}</option>`
+        });
+
+        document.getElementById("pais").append(texto);
+
+
+        
+
+    </script>
+</body>
+</html>

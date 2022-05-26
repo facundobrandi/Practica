@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="conte">Personas <button id="mostrar">Mostrar Personas</button> <button id="ocultar">Ocultar Pesonas</button></div>
+    <table class="customers">
+        <thead class="head">
+        <tr>
+          <th>Nombre y Apellido</th>
+          <th class="data_1">Saldo</th>
+          <th class="data_2">Pais</th>
+        </tr>
+         </thead>
+        <tbody id="tabla">
+
+    </tbody>
+      </table>
+
+      <div class="footer"><h1>Pie de pagina</h1></div>
+
+      <script>
+
+        document.getElementById("ocultar").onclick = function()
+        {
+          document.getElementById("tabla").style =`     height: 550px;
+                                                        display: block;
+                                                        overflow: auto;
+                                                        opacity: 0%;
+                                                        `       
+        }
+
+        document.getElementById("mostrar").onclick = function()
+        {
+          document.getElementById("tabla").style =`     height: 550px;
+                                                        display: block;
+                                                        overflow: auto;
+                                                        opacity: 100%;
+                                                        `     
+        }
+
+
+
+      let textoJSONEmpleados= '[' +
+      '{"Nombre":"Pedro","Apellido":"Gustavo","Saldo":4000,"Pais":"Argentia"},'+
+      '{"Nombre":"Santiago","Apellido":"Socalo","Saldo":48500,"Pais":"Peru"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"}'+
+      ']';
+
+      
+        let obj = JSON.parse(textoJSONEmpleados);
+        let tex = document.getElementById("tabla");
+
+        obj.forEach(element => {
+        tex.innerHTML += `        <tr>
+                  <td>${element.Nombre},${element.Apellido}</td>
+                  <td  class="data_1">${element.Saldo}</td>
+                  <td class="data_2">${element.Pais}</td>
+                </tr>
+        `
+        });
+
+        document.getElementById("tabla").append(tex);
+      </script>
+</body>
+</html>

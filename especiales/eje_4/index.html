@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="gris"></div>
+    
+
+    <div class="conter">Personas <button id="mostrar">Mostrar Personas</button> <button id="ocultar">Ocultar Pesonas</button>
+        <button id="Mostrar">Cargar</button>
+    </div>
+    <table class="customers">
+        <thead class="head">
+        <tr>
+          <th>Nombre y Apellido</th>
+          <th class="data_1">Saldo</th>
+          <th class="data_2">Pais</th>
+        </tr>
+         </thead>
+        <tbody id="tabla">
+
+    </tbody>
+      </table>
+
+
+      <div id="modal">
+        <div class="conte">
+            <div class="header"> <h1>Formulario para alta </h1></div>
+            <div class="clear"> </div>
+            <div class="forms">
+                <form action="./respuesta.html" method="get">
+                  <label for="fname">Nombre</label>
+                  <input type="text" id="nom" name="Nombre" required placeholder="Codigo de articulos">
+              
+                  <label for="lname">Apellido:</label>
+                  <input type="text" id="ape" name="Apellido" required placeholder="Descripcion">
+    
+                  <label for="lname">Saldo:</label>
+                  <input type="number" id="Saldo" name="Saldo" required placeholder="Saldo">
+              
+                  <label for="country">Pais</label>
+                  <select id="pais" required name="Pais">
+                  </select>
+    
+                  <input type="submit" value="Enviar" id="enviar" >
+
+                  
+                </form>
+
+                <button id="Cerrar">Cerrar</button>
+              </div>
+            <div class="footer"> <h1>Pie del formulario</h1></div>
+        </div>
+    </div>
+
+      <div class="footer"><h1>Pie de pagina</h1></div>
+
+      <script>
+
+        document.getElementById("ocultar").onclick = function()
+        {
+          document.getElementById("tabla").style =`     height: 550px;
+                                                        display: block;
+                                                        overflow: auto;
+                                                        opacity: 0%;
+                                                        `       
+        }
+
+        document.getElementById("mostrar").onclick = function()
+        {
+          document.getElementById("tabla").style =`     height: 550px;
+                                                        display: block;
+                                                        overflow: auto;
+                                                        opacity: 100%;
+                                                        `     
+        }
+
+        document.getElementById("Mostrar").onclick = function()
+        {
+          document.getElementById("modal").style =` display: block;` 
+          document.getElementById("gris").style =` display: block;`       
+        }
+
+        document.getElementById("Cerrar").onclick = function()
+        {
+          document.getElementById("modal").style =`display: none;`
+          document.getElementById("gris").style =` display: none;`        
+        }
+
+
+        let textoJSONEmpleados_2 = '[' +
+        '{"pais":"Argentina"},'+
+        '{"pais":"Peru"},'+
+        '{"pais":"Brasil"},'+
+        '{"pais":"Chile"}'+
+        ']';
+        let texto =  document.getElementById("pais")
+        let obj = JSON.parse(textoJSONEmpleados_2);
+        
+        obj.forEach(element => { 
+            texto.innerHTML +=`<option value="${element.pais}">${element.pais}</option>`
+        });
+
+
+
+
+      let textoJSONEmpleados= '[' +
+      '{"Nombre":"Pedro","Apellido":"Gustavo","Saldo":4000,"Pais":"Argentia"},'+
+      '{"Nombre":"Santiago","Apellido":"Socalo","Saldo":48500,"Pais":"Peru"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"},'+
+      '{"Nombre":"Carlos","Apellido":"Parai","Saldo":52058,"Pais":"Argentia"}'+
+      ']';
+
+      
+        let obj_2 = JSON.parse(textoJSONEmpleados);
+        let tex = document.getElementById("tabla");
+
+        obj_2.forEach(element => {
+        tex.innerHTML += `        <tr>
+                  <td>${element.Nombre},${element.Apellido}</td>
+                  <td  class="data_1">${element.Saldo}</td>
+                  <td class="data_2">${element.Pais}</td>
+                </tr>
+        `
+        });
+
+        document.getElementById("tabla").append(tex);
+
+        document.getElementById("pais").appendChild(texto);
+      </script>
+</body>
+</html>
