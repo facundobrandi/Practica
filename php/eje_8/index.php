@@ -51,9 +51,6 @@
 
                 $obj->dato = $_POST["dato"];
 
-
-                
-
                 ?>
                 <div class="conte">
                     <div class="dato">

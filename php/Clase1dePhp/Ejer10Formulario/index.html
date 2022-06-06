@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejer 10 Formulario</title>
+    <style>
+
+        *{
+            font-size: 24px;
+        }
+
+        @media (max-width: 1200px){
+
+            *{
+                font-size: 24px;                
+            }
+            
+        }
+
+        @media (max-width: 800px){
+
+            *{
+                font-size: 36px;                
+            }
+
+        }
+
+        @media (max-width: 600px){
+
+            *{
+                font-size: 48px;                
+            }
+            
+        }
+
+    </style>
+</head>
+<body>
+    <form action="./respuesta.php" method="get">
+        <label for="nombre">Nombre:</label></br>
+        <input type="text" id="nombre" name="nombre" autofocus="autofocus" required="required"></input></br>
+        <label for="apellido">Apellido:</label></br>
+        <input type="text" id="apellido" name="apellido" autofocus="autofocus" required="required"></input></br>
+        <input type="submit" value="Ingreso la información" id="enviar"></input>
+    </form>
+</body>
+</html>
