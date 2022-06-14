@@ -124,6 +124,11 @@
             font-size: 15px;
         }
 
+        .CUR
+        {
+            cursor:crosshair;
+        }
+
     </style>
 
     <div class="conter">
@@ -134,6 +139,7 @@
         <select name="" id="orden">
             <option value="MODELO">Modelo</option>
             <option value="PATENTE">Patente</option>
+            <option value="PRECIO">Precio</option>
             <option value="FECHA">Fecha</option>
             <option value="PAIS">Pais</option>
             <option value="CANT">Cantidad de Puertas</option>
@@ -143,14 +149,14 @@
     <table class="table">
         <thead class="head">
         <tr>
-          <th>Modelo</th>
-          <th class="data_1">Precio</th>
-          <th class="data_2">Patente</th>
-          <th class="data_2">Fecha de alta</th>
-          <th class="data_2">Pais</th>
-          <th class="data_2">Cant de puertas</th>
+          <th id="mod">Modelo</th>
+          <th id="pre" class="data_1">Precio</th>
+          <th id="pat" class="data_2">Patente</th>
+          <th id="fecha" class="data_2">Fecha de alta</th>
+          <th id="pais" class="data_2">Pais</th>
+          <th id="cant" class="data_2">Cant de puertas</th>
         </tr>
-        <tr>
+        <tr class="CUR">
           <th><input type="text" id="f_modelo"></th>
           <th class="data_1"><input type="text" id="f_precio"></th>
           <th class="data_2"><input type="text" id="f_patente"></th>
@@ -173,10 +179,59 @@
         let objTbDatos = document.getElementById("tabla");
 
 
-        $("#cargar").click(function()
-        {
-            cargaTabla();
-        });
+        $(document).ready(function (){
+
+            $("#cargar").click(function()
+                {
+                    cargaTabla();
+                });
+
+                $("#vaciar").click(function()
+                {
+                    $("#tabla").empty();
+                    $("#recuento").html("Nro de registros: " + 0 + " ");
+
+                })
+
+                $("#mod").click(function()
+                {
+                    $("#orden").val("MODELO");
+                    cargaTabla();
+                })
+
+                $("#pre").click(function()
+                {
+                    $("#orden").val("PRECIO");
+                    cargaTabla();
+                })
+
+                $("#pat").click(function()
+                {
+                    $("#orden").val("PATENTE");
+                    cargaTabla();
+                })
+
+                $("#fecha").click(function()
+                {
+                    $("#orden").val("FECHA");
+                    cargaTabla();
+                })
+
+                $("#pais").click(function()
+                {
+                    $("#orden").val("PAIS");
+                    cargaTabla();
+                })
+
+                $("#cant").click(function()
+                {
+                    $("#orden").val("CANT");
+                    cargaTabla();
+                })
+
+        })
+
+
 
 
          function cargaTabla(){
