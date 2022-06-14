@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body
+        {
+            background-color: #32312f;
+            font-family: sans-serif;
+        }
+
+        /* TABLA */
+        .table_container
+        {
+            padding: 0 10%;
+            
+        }
+        .table
+        {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table thead
+        {
+            background-color: #ee2828;
+        }
+        .table thead tr th
+        {
+            font-size: 14px;
+            font-weight: medium;
+            letter-spacing: 0.35px;
+            color:#ffffff;
+            opacity: 1;
+            padding: 12px;
+            vertical-align: top;
+            border: 1px solid #dee2e685;
+        }
+        .table tbody tr td
+        {
+            font-size: 14px;
+            letter-spacing: 0.35px;
+            font-weight: normal;
+            color: #f1f1f1;
+            background-color: #3c3f44;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #dee2e685;
+        }
+
+        @media(max-width : 858px )
+        {
+         .table thead
+         {
+            display: none;
+         }
+         .table , .table tbody, .table tr,.table td
+         {
+            display: block;
+            width: 100%;
+         }
+         .table tr
+         {
+            margin-bottom: 15px;
+         }
+         .table tbody tr td
+         {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+         }
+         .table td:before 
+         {
+            content: attr(data-label);
+            position:absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align:left;
+
+         }
+        }
+
+
+        /*CABECERA*/
+        .conter
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ee2828;
+            height: 100px;
+            font-size: 15px;
+        }
+        .conter select,.conter button , .conter  input ,.conter label
+        {
+            font-size: 15px;
+            padding: 10px;
+            margin: 0 20px;
+            border-radius: 15px;
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ee2828;
+            height: 100px;
+            font-size: 15px;
+        }
+
+    </style>
+
+    <div class="conter">
+        Autos
+        <button  id="cargar">Cargar Datos</button> 
+        <button id="vaciar">Vaciar Datos</button>
+        <label for=""> Orden:</label>
+        <select name="" id="orden">
+            <option value="MODELO">Modelo</option>
+            <option value="PATENTE">Patente</option>
+            <option value="FECHA">Fecha</option>
+            <option value="PAIS">Pais</option>
+            <option value="CANT">Cantidad de Puertas</option>
+        </select>
+    </div>
+    <div class="table_container">
+    <table class="table">
+        <thead class="head">
+        <tr>
+          <th>Modelo</th>
+          <th class="data_1">Precio</th>
+          <th class="data_2">Patente</th>
+          <th class="data_2">Fecha de alta</th>
+          <th class="data_2">Pais</th>
+          <th class="data_2">Cant de puertas</th>
+        </tr>
+        <tr>
+          <th><input type="text" id="f_modelo"></th>
+          <th class="data_1"><input type="text" id="f_precio"></th>
+          <th class="data_2"><input type="text" id="f_patente"></th>
+          <th class="data_2"><input type="text" id="f_fecha"></th>
+          <th class="data_2"><input type="text" id="f_pais"></th>
+          <th class="data_2"><input type="text" id="f_cantidad"></th>
+        </tr>
+         </thead>
+        <tbody id="tabla">
+
+            <tr>
+                <td data-label = "Modelo">Fiat</td>
+                <td data-label = "Precio">45000$</td>
+                <td data-label = "Patente">555-KLI</td>
+                <td data-label = "Fecha">30-09-57</td>
+                <td data-label = "Pais">Alemania</td>
+                <td data-label = "Cantidad">5</td>
+            </tr>
+            <tr>
+                <td data-label = "Modelo">Fiat</td>
+                <td data-label = "Precio">45000$</td>
+                <td data-label = "Patente">555-KLI</td>
+                <td data-label = "Fecha">30-09-57</td>
+                <td data-label = "Pais">Alemania</td>
+                <td data-label = "Cantidad">5</td>
+            </tr>
+            <tr>
+                <td data-label = "Modelo">Fiat</td>
+                <td data-label = "Precio">45000$</td>
+                <td data-label = "Patente">555-KLI</td>
+                <td data-label = "Fecha">30-09-57</td>
+                <td data-label = "Pais">Alemania</td>
+                <td data-label = "Cantidad">5</td>
+            </tr>
+            <tr>
+                <td data-label = "Modelo">Fiat</td>
+                <td data-label = "Precio">45000$</td>
+                <td data-label = "Patente">555-KLI</td>
+                <td data-label = "Fecha">30-09-57</td>
+                <td data-label = "Pais">Alemania</td>
+                <td data-label = "Cantidad">5</td>
+            </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+      <div class="footer"><p id="recuento"></p> <h3>Pie de pagina</h3></div>
+
+      <script>
+
+        let objTbDatos = document.getElementById("tabla");
+
+
+        $("#cargar").click(function()
+        {
+            cargaTabla();
+        });
+
+
+         function cargaTabla(){
+
+            $("#tabla").empty();
+            $("#tabla").html("<p>Esperando respuesta ....</p>");
+                var objAjax = $.ajax({
+                type:"get",
+                url:"./repuesta.php",
+                    data: {
+                        orden: $("#orden").val(),
+                        f_modelo: $("#f_modelo").val(),
+                        f_precio: $("#f_precio").val(),
+                        f_patente: $("#f_patente").val(),
+                        f_fecha: $("#f_fecha").val(),
+                        f_pais:$("#f_pais").val(),
+                        f_cantidad:$("#f_cantidad").val()
+
+                    },
+                    success: function(respuestaDelServer,estado) {
+                            $("#tabla").empty();
+                            objJson=JSON.parse(respuestaDelServer);
+                            console.log(objJson);
+                            objJson.articulos.forEach(function(argValor,argIndice) {
+                            var objTr= document.createElement("tr");
+                            var objTd_MOD=document.createElement("td");
+                            var objTd_PRE=document.createElement("td");
+                            var objTd_PAT=document.createElement("td");
+                            var objTd_FEC=document.createElement("td");
+                            var objTd_PAIS=document.createElement("td");
+                            var objTd_CANT=document.createElement("td");
+
+
+                            //
+                            objTd_MOD.innerHTML=argValor.MODELO;
+                            objTd_PRE.innerHTML = argValor.PRECIO;
+                            objTd_PAT.innerHTML = argValor.PATENTE;
+                            objTd_FEC.innerHTML = argValor.FECHA;
+                            objTd_PAIS.innerHTML = argValor.PAIS;
+                            objTd_CANT.innerHTML = argValor.CANT;
+                            
+                            objTd_MOD.setAttribute("data-label","Modelo");
+                            objTd_PRE.setAttribute("data-label","Precio");
+                            objTd_PAT.setAttribute("data-label","Patente");
+                            objTd_FEC.setAttribute("data-label","Fecha");
+                            objTd_PAIS.setAttribute("data-label","Pais");
+                            objTd_CANT.setAttribute("data-label","Cantidad de Puertas");
+
+                            objTr.appendChild(objTd_MOD);
+                            objTr.appendChild(objTd_PRE);
+                            objTr.appendChild(objTd_PAT);
+                            objTr.appendChild(objTd_FEC);
+                            objTr.appendChild(objTd_PAIS);
+                            objTr.appendChild(objTd_CANT);
+
+                            objTbDatos.appendChild(objTr);
+
+
+                    });//cierra el forEach
+
+                    $("#recuento").html("Nro de registros: " + objJson.articulos.length + " ");
+                    
+                }//cierra funcion asignada al success
+
+            }); //cierra objeto de parametros y funcion ajax
+
+        }//cierra funcion cargaTabla
+
+
+      </script>
+</body>
+</html>

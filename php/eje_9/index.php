@@ -114,10 +114,6 @@
     <div class="footer">footer</div>
 
 
-
-
-
-
     <?php
             if(isset($_POST["dato"]) && isset($_POST["Apellido"]) )
             {
@@ -184,12 +180,6 @@
                 <?php
             }
     ?>
-
-
-<!-- <div id="modal_2">
-        <h2>Resultado de la transformacion a json</h2>
-        <button id="cerrar_2">Cerrar</button>
-    </div> -->
 
 
     <script>
