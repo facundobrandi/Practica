@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -63,11 +64,22 @@
 
         @media(max-width : 858px )
         {
-         .table thead
-         {
-            display: none;
-         }
-         .table , .table tbody, .table tr,.table td
+
+        .CUR
+        {
+            display: none !important;
+        }
+
+        .table th
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+         .table , .table tbody, .table tr,.table td, .table thead 
          {
             display: block;
             width: 100%;
@@ -75,6 +87,7 @@
          .table tr
          {
             margin-bottom: 15px;
+            margin-top: 15px;
          }
          .table tbody tr td
          {
@@ -134,6 +147,7 @@
     <div class="conter">
         Autos
         <button  id="cargar">Cargar Datos</button> 
+        <button  id="meter">Meter</button> 
         <button id="vaciar">Vaciar Datos</button>
         <label for=""> Orden:</label>
         <select name="" id="orden">
@@ -184,6 +198,18 @@
             $("#cargar").click(function()
                 {
                     cargaTabla();
+                    
+
+                    
+                });
+
+                $("#meter").click(function()
+                {
+                    swal({
+                        title: "Todavia no hecho",
+                        text: "esta boton es para agregar un auto",
+                        icon: "warning",
+                        });
                 });
 
                 $("#vaciar").click(function()
@@ -230,10 +256,6 @@
                 })
 
         })
-
-
-
-
          function cargaTabla(){
 
             $("#tabla").empty();
@@ -267,7 +289,7 @@
 
                             //
                             objTd_MOD.innerHTML=argValor.MODELO;
-                            objTd_PRE.innerHTML = argValor.PRECIO;
+                            objTd_PRE.innerHTML = "$" +argValor.PRECIO ;
                             objTd_PAT.innerHTML = argValor.PATENTE;
                             objTd_FEC.innerHTML = argValor.FECHA;
                             objTd_PAIS.innerHTML = argValor.PAIS;
@@ -293,6 +315,13 @@
                     });//cierra el forEach
 
                     $("#recuento").html("Nro de registros: " + objJson.articulos.length + " ");
+
+                    swal({
+                        title: "Tabla Cargada",
+                        text: "la Tabla se cargo con "+ objJson.articulos.length + " autos" ,
+                        icon: "success",
+                        });
+                    
                     
                 }//cierra funcion asignada al success
 
