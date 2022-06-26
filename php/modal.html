@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;    
+            font-size: 8px;
+            font-size:100%;
+        }
+        .modal , .mostra
+        {
+            display:none;
+            position:fixed;
+            top: 10%;
+            left: 5%;
+            background-color: #dee2e685;
+            width: 60%;
+            border: 5px solid #3c3f44;
+            border-radius: 25px;
+        }
+
+        .mostra
+        {
+            left: 67%;
+            width: 30%;
+        }
+
+        .container
+        {
+            width: 100%;
+            background-color: #dee2e685;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+            border-radius: 25px;
+        }
+
+        .div
+        {
+            height: 100px;
+            width: 400px;
+            border: 1px solid black;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            float: left;
+            clear: both;
+        }
+
+        .container input ,.container p ,.container select 
+        {
+            margin-top: 14px;
+            margin-left: 14px;
+            font-size: larger;
+        }
+
+        .div_button ,.container button
+        {   
+
+            padding: 10px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cerrar
+        {
+            height: auto;
+            width: 2%;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: red;
+            float:right;
+            border-top-right-radius: 15px;
+        }
+        
+    </style>
+
+    <button id="mostrar"> Mostrar Ventana</button>
+
+    <div class="modal">
+        <div class="cerrar">
+            <h2>X</h2>
+        </div>
+        <div class="container">
+
+            <div class="div"> 
+            <p>Modelo(No igual a los que ya estan)</p>
+            <input type="text" name="Mod" id="Mod" >
+            </div>
+            <div class="div"> 
+            <p >Precio</p>
+            <input type="number" name="Pre" id="Mod">
+        </div>
+            <div class="div"> 
+            <p >Patente</p>
+            <input type="text" name="Pat" id="Mod">
+        </div>
+            <div class="div"> 
+            <p >Fecha de Alta</p>
+            <input type="date" name="Fecha" id="Mod">
+        </div>
+            <div class="div"> 
+            <p >Pais</p>
+            <input type="text" name="Pais" id="Mod">
+        </div>
+            <div class="div"> 
+            <p >Numero de Puertas</p>
+            <select name="cant" id="Puertas">
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="div div_button"> 
+            <button type="submit" id="enviar">Boton para subir</button>   
+        </div>
+        </div>
+    </div>
+
+    <div class="mostra">
+        <div class="cerrar">
+            <h2>X</h2>
+        </div>
+        <div class="container" id="mostrar_2">
+
+        </div>
+    </div>
+    
+    <script>
+
+        $("#mostrar").click (function()
+        {
+            $(".modal").css({"display":"block"}); 
+            $(".mostra").css({"display":"block"}); 
+        })
+
+        $(".cerrar").click (function()
+        {
+            $(".modal").css({"display":"none"}); 
+            $(".mostra").css({"display":"none"}); 
+        })
+
+        $("#enviar").click(function()
+        {
+
+            //aca se llama a la funcion de cargarun dato que manda el ajax y eso
+
+            swal({
+                        title: "Datos Cargador",
+                        text: "El dato se cargo bien" ,
+                        icon: "success",
+                        });
+        })
+
+    </script>
+
+
+</body>
+</html>
