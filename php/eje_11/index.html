@@ -229,7 +229,7 @@
         {
             display:none;
             position:fixed;
-            top: 10%;
+            top: 5%;
             left: 5%;
             background-color: #b1b6ba;
             width: 60%;
@@ -246,12 +246,11 @@
         .container
         {
             width: 100%;
+            height: auto;
             background-color: #b1b6ba;
-            margin: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
             padding: 15px;
             border-radius: 25px;
         }
@@ -259,13 +258,12 @@
         .div
         {
             height: 100px;
-            width: 400px;
+            width: 300px;
             border: 1px solid black;
             border-radius: 15px;
             margin-bottom: 20px;
             margin-right: 20px;
             float: left;
-            clear: both;
         }
 
         .container input ,.container p ,.container select 
@@ -312,35 +310,40 @@
             <h2>X</h2>
         </div>
         <div class="container">
-
+        <form id="formArticulosAlta" method="post" enctype="multipart/form-data">
             <div class="div"> 
             <p>Modelo</p>
-            <input type="text" name="Mod" id="modelo_carga" >
+            <input type="text" name="modelo_carga" id="modelo_carga" >
             </div>
             <div class="div"> 
             <p >Precio</p>
-            <input type="number" name="Pre" id="precio_carga">
+            <input type="number" name="precio_carga" id="precio_carga">
         </div>
             <div class="div"> 
             <p >Patente</p>
-            <input type="text" name="Pat" id="patente_carga">
+            <input type="text" name="patente_carga" id="patente_carga">
         </div>
             <div class="div"> 
             <p >Fecha de Alta</p>
-            <input type="date" name="Fecha" id="fecha_carga">
+            <input type="date" name="fecha_carga" id="fecha_carga">
         </div>
-            <div class="div"> 
+        <div class="div"> 
             <p >Pais</p>
-            <input type="text" name="Pais" id="pais_carga">
+            <input type="text" name="pais_carga" id="pais_carga">
         </div>
             <div class="div"> 
             <p >Numero de Puertas</p>
-            <select name="cant" id="puertas">
+            <select name="puertas_carga" id="puertas">
                 <option value="2">2</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
             </select>
         </div>
+        <div class="div">
+            <label>Documento Pdf: </label>
+            <input type="file" id="documentoPdf" name="documentoPdf">
+            </div>
+        </form>
         <div class="div div_button"> 
             <button type="submit" id="enviar">Boton para subir</button>   
         </div>
@@ -361,35 +364,41 @@
             <h2>X</h2>
         </div>
         <div class="container">
+            <form id="formArticulosModi" method="post" enctype="multipart/form-data">
 
             <div class="div"> 
             <p>Modelo a Modificar</p>
-            <input type="text" name="Mod" id="modelo_modi" >
+            <input type="text" name="modelo_modi" id="modelo_modi" >
             </div>
             <div class="div"> 
             <p >Precio</p>
-            <input type="number" name="Pre" id="precio_modi">
+            <input type="number" name="precio_modi" id="precio_modi">
         </div>
             <div class="div"> 
             <p >Patente</p>
-            <input type="text" name="Pat" id="patente_modi">
+            <input type="text" name="patente_modi" id="patente_modi">
         </div>
             <div class="div"> 
             <p >Fecha de Alta</p>
-            <input type="date" name="Fecha" id="fecha_modi">
+            <input type="date" name="fecha_modi" id="fecha_modi">
         </div>
             <div class="div"> 
             <p >Pais</p>
-            <input type="text" name="Pais" id="pais_modi">
+            <input type="text" name="pais_modi" id="pais_modi">
         </div>
             <div class="div"> 
             <p >Numero de Puertas</p>
-            <select name="cant" id="puertas_modi">
+            <select name="puertas_modi" id="puertas_modi">
                 <option value="2">2</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
             </select>
         </div>
+        <div class="div">
+            <label>Documento Pdf: </label>
+            <input type="file" id="documentoPdf_modi" name="documentoPdf_modi">
+            </div>
+            </form>
         <div class="div div_button"> 
             <button type="submit" id="enviar_modi">Boton para subir</button>   
         </div>
@@ -535,44 +544,46 @@
 
         function modi()
         {
-            let obj_ajax = $.ajax({
-                type:"get",
-                url:"./modi.php",
-                data:
-                {
-                    modelo:$("#modelo_modi").val(),
-                    precio:$("#precio_modi").val(),
-                    patente:$("#patente_modi").val(),
-                    fecha:$("#fecha_modi").val(),
-                    pais:$("#pais_modi").val(),
-                    puertas:$("#puertas_modi").val()
-                },
-                success : function(respuestaDelServer,estado)
-                {
-                    $(".container_alta_modi").html(respuestaDelServer);
-                }
+                var data = new FormData($("#formArticulosModi")[0]);
+
+
+                    var objAjax = $.ajax({
+                    type: 'post',
+                    method: 'post',
+                    enctype: 'multipart/form-data',
+                    url: "./modi.php",
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: data,
+                    success: function(respuestaDelServer,estado)
+                    {
+                        $(".container_alta_modi").html(respuestaDelServer);
+                    }
+
             }); 
         }
 
         function alta()
         {
-            let obj_ajax = $.ajax({
-                type:"get",
-                url:"./alta.php",
-                data:
-                {
-                    modelo:$("#modelo_carga").val(),
-                    precio:$("#precio_carga").val(),
-                    patente:$("#patente_carga").val(),
-                    fecha:$("#fecha_carga").val(),
-                    pais:$("#pais_carga").val(),
-                    puertas:$("#puertas").val()
-                },
-                success : function(respuestaDelServer,estado)
-                {
-                    $(".container_alta").html(respuestaDelServer);
-                }
-            });
+            var data = new FormData($("#formArticulosAlta")[0]);
+
+
+            var objAjax = $.ajax({
+            type: 'post',
+            method: 'post',
+            enctype: 'multipart/form-data',
+            url: "./alta.php",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function(respuestaDelServer,estado)
+            {
+                $(".container_alta").html(respuestaDelServer);
+            }
+
+            }); 
         }
 
         function cargaTabla(){
